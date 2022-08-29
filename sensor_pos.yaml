@@ -53,6 +53,34 @@ spawn_actors:
       pitch: -6.14206075668335
       roll: 5.731841883971356e-05
       yaw: -92.03047943115234
+- blueprint:
+    attr:
+      image_size_x: '1280'
+      image_size_y: '960'
+    name: sensor.camera.rgb
+  transform:
+    location:
+      x: -40.08478546142578
+      y: -55.33632278442383
+      z: 21.040754318237305
+    rotation:
+      pitch: -39.813472747802734
+      roll: 7.335847476497293e-05
+      yaw: -163.1525115966797
+- blueprint:
+    attr:
+      image_size_x: '1280'
+      image_size_y: '960'
+    name: sensor.camera.depth
+  transform:
+    location:
+      x: -40.08478546142578
+      y: -55.33632278442383
+      z: 21.040754318237305
+    rotation:
+      pitch: -39.813472747802734
+      roll: 7.335847476497293e-05
+      yaw: -163.1525115966797
 weather:
   cloudiness: 0.0
   fog_density: 0.0
