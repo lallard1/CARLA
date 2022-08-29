@@ -76,7 +76,7 @@ def main():
     argparser.add_argument(
         '-w', '--number-of-walkers',
         metavar='W',
-        default=1,
+        default=30,
         type=int,
         help='Number of walkers (default: 1)')
     argparser.add_argument(
