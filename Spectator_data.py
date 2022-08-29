@@ -31,13 +31,13 @@ def let_user_pick(options):
 camera_pos_log = []# ['x', 'y', 'z', 'roll', 'pitch', 'yaw']]
 all_sensors = []
 
-# filepath = 'configs/camera_pos.yaml'
-# with open(filepath, 'r') as stream:
-#     try:
-#         d = yaml.safe_load(stream)
-#         print(d)
-#     except yaml.YAMLError as e:
-#         print(e)
+filepath = 'configs/camera_pos.yaml'
+with open(filepath, 'r') as stream:
+    try:
+        d = yaml.safe_load(stream)
+        print(d)
+    except yaml.YAMLError as e:
+        print(e)
 
 
 
@@ -75,11 +75,15 @@ def main():
 
     finally:
         pass
-        #final_dict = create_dict(camera_pos_log, all_sensors, sensor_dict)
+        
         
 # for each location in camera_pos_log, add key/value pairs to sensor dict for the sensors specified
 def create_dict(camera_pos_log, all_sensors):
-    sensor_dict = {'spawn_actors': []} # {'spawn_actors': [{'blueprint': {...}, 'transform': {...}}]} 
+    #sensor_dict = {'spawn_actors': []} 
+    sensor_dict = {'carla': {'host': '127.0.0.1', 'port': 2005, 'timeout': 5.0, 'sync': {'fps': 20, 'timeout': 2.0}, 'seed': 32, 'traffic_manager_port': 8005, 'townmap': 'Town03'},
+         'output_dir': '_out', 'max_frames': 3000,
+         'weather': {'cloudiness': 0.0, 'precipitation': 0.0, 'precipitation_deposits': 0.0, 'wind_intensity': 0.0, 'sun_azimuth_angle': 0.0, 'sun_altitude_angle': 40.0, 'fog_density': 0.0, 'fog_distance': 0.0, 'wetness': 0.0}, 
+         'spawn_actors': []}
     for i, pos in enumerate(camera_pos_log):
         for sensor in all_sensors[i]:
             sensor_dict['spawn_actors'].append(
@@ -87,7 +91,8 @@ def create_dict(camera_pos_log, all_sensors):
                 'transform': {'location': {'x': pos[0], 'y': pos[1], 'z': pos[2]}, 'rotation': {'roll': pos[3],
                     'pitch': pos[4], 'yaw': pos[5]}}})  
             
-            # {('spawn_actors', [ ... ])})
+            # {'blueprint': {'name': 'sensor.camera.instance_segmentation', 'attr': {'image_size_x': '1280', 'image_size_y': '960'}}, 'transform': {'location': {'x': 91.76060486, 'y': -144.2696686, 'z': 20.0}, 'rotation': {'roll': 177.2326965, 'pitch': 310, 'yaw': 5.27}}}, {'blueprint': {'name': 'sensor.camera.depth', 'attr': {'image_size_x': '1280', 'image_size_y': '960'}}, 'transform': {'location': {'x': 91.76060486, 'y': -144.2696686, 'z': 20.0}, 'rotation': {'roll': 177.2326965, 'pitch': 310, 'yaw': 5.27}}}, {'blueprint': {'name': 'sensor.camera.rgb', 'attr': {'image_size_x': '1280', 'image_size_y': '960'}}, 'transform': {'location': {'x': 91.76060486, 'y': -144.2696686, 'z': 20.0}, 'rotation': {'roll': 177.2326965, 'pitch': 310, 'yaw': 5.27}},
+         
 
     return(sensor_dict)
 
