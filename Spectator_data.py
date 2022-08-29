@@ -79,13 +79,13 @@ def main():
         
 # for each location in camera_pos_log, add key/value pairs to sensor dict for the sensors specified
 def create_dict(camera_pos_log, all_sensors):
-    sensor_dict = {'spawn_actors': [{'blueprint': {...}, 'transform': {...}}]} # or {'spawn_actors': []}
+    sensor_dict = {'spawn_actors': []} # {'spawn_actors': [{'blueprint': {...}, 'transform': {...}}]} 
     for i, pos in enumerate(camera_pos_log):
         for sensor in all_sensors[i]:
-            sensor_dict['spawn_actor'].append(
+            sensor_dict['spawn_actors'].append(
                 {'blueprint': {'name': sensor, 'attr': {'image_size_x': '1280', 'image_size_y': '960'}}, 
                 'transform': {'location': {'x': pos[0], 'y': pos[1], 'z': pos[2]}, 'rotation': {'roll': pos[3],
-                    'pitch': pos[4], 'yaw': pos[5]}}, 'attachment': 'rigid'})  
+                    'pitch': pos[4], 'yaw': pos[5]}}})  
             
             # {('spawn_actors', [ ... ])})
 
@@ -107,7 +107,8 @@ if __name__ == '__main__':
         writer.save()
 
         final_dict = create_dict(camera_pos_log, all_sensors)
+        #del final_dict['spawn_actors'][0]
         with open(r'sensor_pos.yaml', 'w') as file:
             documents = yaml.dump(final_dict, file)
-        print('\n Camera positions have been saved to the excel file:', filename, 'and the sensor_pos.yaml file')
+        print('\n Sensor positions have been saved to the excel file:', filename, 'and the config file has been saved as sensor_pos.yaml file')
 

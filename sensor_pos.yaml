@@ -1,0 +1,85 @@
+spawn_actors:
+- blueprint:
+    attr:
+      image_size_x: '1280'
+      image_size_y: '960'
+    name: sensor.camera.rgb
+  transform:
+    location:
+      x: -45.246620178222656
+      y: 44.40956497192383
+      z: 10.97488784790039
+    rotation:
+      pitch: -7.0817790031433105
+      roll: 4.581293978844769e-05
+      yaw: -86.64163208007812
+- blueprint:
+    attr:
+      image_size_x: '1280'
+      image_size_y: '960'
+    name: sensor.camera.instance_segmentation
+  transform:
+    location:
+      x: -45.246620178222656
+      y: 44.40956497192383
+      z: 10.97488784790039
+    rotation:
+      pitch: -7.0817790031433105
+      roll: 4.581293978844769e-05
+      yaw: -86.64163208007812
+- blueprint:
+    attr:
+      image_size_x: '1280'
+      image_size_y: '960'
+    name: sensor.camera.depth
+  transform:
+    location:
+      x: -45.246620178222656
+      y: 44.40956497192383
+      z: 10.97488784790039
+    rotation:
+      pitch: -7.0817790031433105
+      roll: 4.581293978844769e-05
+      yaw: -86.64163208007812
+- blueprint:
+    attr:
+      image_size_x: '1280'
+      image_size_y: '960'
+    name: sensor.camera.rgb
+  transform:
+    location:
+      x: -47.17576217651367
+      y: -5.20164155960083
+      z: 19.53321075439453
+    rotation:
+      pitch: -6.14206075668335
+      roll: 5.731841883971356e-05
+      yaw: -92.03047943115234
+- blueprint:
+    attr:
+      image_size_x: '1280'
+      image_size_y: '960'
+    name: sensor.camera.instance_segmentation
+  transform:
+    location:
+      x: -47.17576217651367
+      y: -5.20164155960083
+      z: 19.53321075439453
+    rotation:
+      pitch: -6.14206075668335
+      roll: 5.731841883971356e-05
+      yaw: -92.03047943115234
+- blueprint:
+    attr:
+      image_size_x: '1280'
+      image_size_y: '960'
+    name: sensor.camera.depth
+  transform:
+    location:
+      x: -47.17576217651367
+      y: -5.20164155960083
+      z: 19.53321075439453
+    rotation:
+      pitch: -6.14206075668335
+      roll: 5.731841883971356e-05
+      yaw: -92.03047943115234
